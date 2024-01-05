@@ -25,6 +25,7 @@ export enum statusCode {
 	ok = 200,
 	unauthorized = 401,
 	badRequest = 400,
+	found = 302,
 	notFound = 404,
 	internalServerError = 500,
 	notAcceptable = 406,

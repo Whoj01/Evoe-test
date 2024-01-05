@@ -3,6 +3,7 @@ import cors from "@fastify/cors";
 
 import { AddressInfo } from "net";
 import "dotenv/config";
+import { userRoutes } from "./routes/user";
 
 
 const server: FastifyInstance = Fastify({
@@ -25,7 +26,7 @@ server.register(cors, {
 	allowedHeaders: ["Content-Type", "Authorization"],
 });
 
-
+server.register(userRoutes)
 
 const start = async () => {
 	try {

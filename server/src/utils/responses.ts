@@ -14,7 +14,7 @@ export function successesRequest(
 	};
 }
 
-export function errsorRequest(message: string, statusCode: number) {
+export function errorRequest(message: string, statusCode: number) {
   return {
     statusCode,
     body: {

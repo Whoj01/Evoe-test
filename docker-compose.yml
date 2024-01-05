@@ -3,45 +3,13 @@ version: '3'
 services:
   database:
     image: postgres
-    networks:
-      - internal-network
     environment:
       - "POSTGRES_USER=postgres"
       - "POSTGRES_PASSWORD=2553218858"
       - "POSTGRES_DB=evoetest"
-      - "POSTGRES_HOST_AUTH_METHOD=trust"
     ports:
       - 5432:5432
     volumes:
       - pg-data:/var/lib/postgresql/data
-  api: 
-    build: 
-      context: ./server
-      dockerfile: Dockerfile.dev
-    ports:
-      - 8080:8080
-    depends_on:
-      - database
-    networks:
-      - internal-network
-    volumes:
-      - ./server:/app:cached
-      - /app/node_modules
-    restart: always
-  web: 
-    build: 
-      context: ./web
-      dockerfile: Dockerfile.dev
-    ports:
-      - 8081:8081
-    volumes: 
-      - ./web:/app:cached
-      - /app/node_modules
-    networks:
-      - internal-network
 volumes:
   pg-data:
-
-networks:
-  internal-network:
-    driver: bridge
