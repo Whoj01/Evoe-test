@@ -1,0 +1,1 @@
+{"c":["app/layout","app/loading","webpack"],"r":[],"m":["(app-pages-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%2Fhome%2Fjosue%2FEvoe-test%2Fweb%2Fsrc%2Fapp%2Floading.tsx&server=false!","(app-pages-browser)/./src/app/loading.tsx","(app-pages-browser)/./src/components/ui/skeleton.tsx"]}

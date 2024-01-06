@@ -17,6 +17,8 @@ export class PrismaEditUserRepository implements IEditUserRepository {
 
     if (!findUser) return 'Usuário não encontrado'
 
+    console.log(editFieldsUser)
+
     await prisma.user.update({
       where: {
         id: editFieldsUser.id

@@ -12,17 +12,12 @@ import { EditUserController } from "../controllers/user/edit-user/edit-user";
 import { ParamsEditUser } from "../controllers/user/edit-user/protocols";
 
 export async function userRoutes(app: FastifyInstance) {
-  app.get("/user/:page/:limit", async (req: FastifyRequest<{ Params: ParamsGetUsers }>, res) => {
+  app.get("/user", async (req, res) => {
     const prismaGetUsersRepository = new PrismaGetUsersRepository()
 
     const getUserController = new GetUsersController(prismaGetUsersRepository)
 
-    const { body, statusCode } = await getUserController.handle({
-      body: {
-        limit: req.params.limit,
-        page: req.params.page
-      }
-    })
+    const { body, statusCode } = await getUserController.handle({})
 
     res.code(statusCode).send(body)
   });
@@ -39,7 +34,7 @@ export async function userRoutes(app: FastifyInstance) {
     res.code(statusCode).send(body)
   })
 
-  app.patch("/user/:id", async (req: FastifyRequest<{ Body: Pick<ParamsEditUser, 'email' | 'name' | 'supporter'>, Params: { id: string } }>, res) => {
+  app.put("/user/:id", async (req: FastifyRequest<{ Body: Pick<ParamsEditUser, 'email' | 'name' | 'supporter'>, Params: { id: string } }>, res) => {
     const prismaEditUserRepository = new PrismaEditUserRepository()
 
     const editUserController = new EditUserController(prismaEditUserRepository)

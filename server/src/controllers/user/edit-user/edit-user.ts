@@ -14,15 +14,15 @@ export class EditUserController implements IController {
     try {
       const editFieldsUser = httpResquest.body
 
-      if(!editFieldsUser) return successesRequest('Campos não informados', statusCode.badRequest)
+      if(!editFieldsUser) return successesRequest('Campos não informado', statusCode.badRequest)
 
       const editUser = await this.editUserRepository.editUser(editFieldsUser!)
 
       if (editUser) return successesRequest('Usuário atualizado com sucesso', statusCode.ok)
 
       return errorRequest('Erro ao atualizar usuário', statusCode.internalServerError)
-    } catch ({ message }: any) {
-      return errorRequest(message, statusCode.internalServerError)
+    } catch (error: any) {
+      return errorRequest(error.message, statusCode.internalServerError)
     }
   }
 }

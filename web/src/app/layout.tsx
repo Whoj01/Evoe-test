@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 import { Syne, Poppins, Inconsolata } from 'next/font/google'
-
+import { ToastContainer, toast } from 'react-toastify';
+import { Header } from '@/components/layout/Header'
 import './globals.css'
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const syne = Syne({
   subsets: ['latin'],
@@ -33,7 +36,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inconsolata.className} ${syne.className} ${poppins.className} min-h-screen max-w-screen bg-white`}>{children}</body>
+      <body className={`${inconsolata.className} ${syne.className} ${poppins.className} flex flex-col items-center justify-start min-h-screen max-w-screen bg-white px-4`}>
+        <ToastContainer />
+
+        <Header />
+
+        {children}
+      </body>
     </html>
   )
 }

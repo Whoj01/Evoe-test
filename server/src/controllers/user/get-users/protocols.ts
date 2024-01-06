@@ -11,5 +11,5 @@ export type GetUsersInfo = {
 }
 
 export interface IGetUsersRepository {
-  getUsers: (params: ParamsGetUsers) => Promise<GetUsersInfo> 
+  getUsers: () => Promise<OutputUser[]> 
 }

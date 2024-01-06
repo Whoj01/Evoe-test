@@ -6,17 +6,11 @@ import { GetUsersInfo, IGetUsersRepository, ParamsGetUsers } from "./protocols";
 export class GetUsersController implements IController {
   constructor (private readonly getUsersRepository: IGetUsersRepository) {}
 
-  async handle(httpResquest: HttpResquest<ParamsGetUsers>): Promise<HttpResponse<GetUsersInfo | string>> {
-    try {
-      const params = httpResquest.body
+  async handle(httpResquest: HttpResquest<unknown>): Promise<HttpResponse<GetUsersInfo | string>> {
+    try {      
+      const users = await this.getUsersRepository.getUsers()
 
-      const requiredFields: requiredFieldsError = verifyRequiredFields(['page', 'limit'], params)
-
-      if (requiredFields) return requiredFields
-      
-      const users = await this.getUsersRepository.getUsers(params!)
-
-      if (users) return successesRequest('Usuários encontrados com sucesso', statusCode.found, users)
+      if (users) return successesRequest('Usuários encontrados com sucesso', statusCode.ok, users)
 
       return errorRequest('Usuários não encontrados', statusCode.notFound)
     } catch (error: any) {

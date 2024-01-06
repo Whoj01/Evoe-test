@@ -22,7 +22,7 @@ export class CreateUserController implements IController {
       return errorRequest('Usuário não foi criado', statusCode.tryAgainLater)
     } catch (error: any) {
       if (error.meta?.target?.[0] === "email") {
-        return errorRequest("Nome já email", statusCode.notAcceptable);
+        return errorRequest("Email já existe", statusCode.notAcceptable);
       }
 
       return errorRequest("Erro interno", statusCode.internalServerError);

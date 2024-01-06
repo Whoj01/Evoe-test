@@ -5,18 +5,7 @@ import { AddressInfo } from "net";
 import "dotenv/config";
 import { userRoutes } from "./routes/user";
 
-
-const server: FastifyInstance = Fastify({
-  logger: {
-    transport: {
-      target: "pino-pretty",
-      options: {
-        translateTime: "SYS:HH:MM:ss",
-        colorize: true,
-      },
-    },
-  },
-});
+const server: FastifyInstance = Fastify();
 
 const PORT = process.env.PORT || 8081;
 
@@ -30,8 +19,9 @@ server.register(userRoutes)
 
 const start = async () => {
 	try {
+		console.log('iniciando servidor')
 		await server.listen({ port: PORT as number, host: '0.0.0.0' });
-
+		console.log('nunca chegou aqui')
 		const { address } = server.server.address() as AddressInfo;
 
 		server.log.info(`Server listening at ${address}:${PORT}`);
