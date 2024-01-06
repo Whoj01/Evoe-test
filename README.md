@@ -54,7 +54,7 @@ Essas são as funcionaliadades do projeto:
   - Loading skeleton em toda a aplicação se utilizando do estado da request.
   - Tratamento de erros.
   - Tratamento de página não encontrada.
-  - Página Home para criar e listar usuários
+  - Página Home para criar,listar e deletar usuários
   - Responsividade Completa
 
 ## ⌨ Comandos
