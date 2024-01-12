@@ -31,7 +31,6 @@ services:
 volumes:
   pg-data:
 
-
 networks:
   internal-network:
     driver: bridge

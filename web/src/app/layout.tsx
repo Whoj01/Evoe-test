@@ -5,7 +5,6 @@ import { Header } from '@/components/layout/Header'
 import './globals.css'
 import 'react-toastify/dist/ReactToastify.css';
 
-
 const syne = Syne({
   subsets: ['latin'],
   weight: '700',
