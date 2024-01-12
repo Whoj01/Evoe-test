@@ -34,9 +34,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
- Esse projeto foi desenvolvido para o teste de vaga da Bean Software desenvolvedor Pleno, com o objetivo de testar as capacidades técnicas do candidato.
+ Esse projeto foi desenvolvido para o teste de vaga da Evoe Software desenvolvedor Pleno, com o objetivo de testar as capacidades técnicas do candidato.
  Para o Backend eu utilizei o *Repository Pattern* para ter inversão das dependencias e modalização dos componentes para testes.
- No Frontend utilizei o Vite com React router dom para faziar o roteamento das páginas, se utilizando de custom hooks, services e*Composition Pattern* para modular o código e deixar cada arquivo com sua responsabilidade.
+ No Frontend utilizei o Nextjs14 para fazer o roteamento das páginas, se utilizando de custom hooks, services e *Composition Pattern* para modular o código e deixar cada arquivo com sua responsabilidade.
 
 ## 🎆 Funcionalidades
 
@@ -54,7 +54,7 @@ Essas são as funcionaliadades do projeto:
   - Loading skeleton em toda a aplicação se utilizando do estado da request.
   - Tratamento de erros.
   - Tratamento de página não encontrada.
-  - Página Home para criar e listar usuários
+  - Página Home para criar,listar e deletar usuários
   - Responsividade Completa
 
 ## ⌨ Comandos
