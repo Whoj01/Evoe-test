@@ -6,7 +6,10 @@ import { Button } from "../ui/button"
 export async function HomePage() {
   const { getUsers } = useUsersAPI()
 
-  const data = await getUsers().catch((err) => null)
+  const data = await getUsers().catch((err) => {
+    console.log(err)
+    return null
+  })
 
   return (
     <>
